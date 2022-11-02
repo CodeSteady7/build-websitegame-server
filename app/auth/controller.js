@@ -74,6 +74,10 @@ module.exports = {
   signin: async (req, res, next) => {
     const { email, password } = req.body;
 
+    const testPlayer = await Player.find();
+    console.log("req", req.body);
+    console.log("req player", testPlayer);
+
     Player.findOne({ email: email })
       .then((player) => {
         if (player) {
