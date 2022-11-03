@@ -44,7 +44,9 @@ module.exports = {
           .json({ message: "voucher game tidak ditemukan" });
       }
 
-      res.status(200).json({ data: voucher });
+      const payment = await Payment.find().populate("bank");
+
+      res.status(200).json({ data: { voucher, payment } });
     } catch (err) {
       res.status(500).json({ message: err.message } || "Internal Server Error");
     }
