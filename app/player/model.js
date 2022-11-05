@@ -60,7 +60,7 @@ playerSchema.path("email").validate(
     try {
       const count = await this.model("Player").countDocuments({ email: value });
       return !count;
-    } catch (error) {
+    } catch (err) {
       throw err;
     }
   },
