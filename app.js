@@ -24,6 +24,10 @@ const authRouter = require("./app/auth/router");
 const app = express();
 const URL = `/api/v1`;
 app.use(cors());
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 
