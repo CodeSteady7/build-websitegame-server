@@ -24,10 +24,15 @@ const authRouter = require("./app/auth/router");
 const app = express();
 const URL = `/api/v1`;
 app.use(cors());
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+app.options("*", cors());
+// app.use((req, res, next) => {
+//   header("Access-Control-Allow-Origin: *");
+//   header(
+//     "Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS"
+//   );
+//   header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token");
+//   next();
+// });
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 
