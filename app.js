@@ -23,10 +23,11 @@ const authRouter = require("./app/auth/router");
 // const methodOverride = require("method-override");
 const app = express();
 const URL = `/api/v1`;
-app.use(cors());
+// app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 app.options("*", cors());
 app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Origin", "*");
 
   res.setHeader(
     "Access-Control-Allow-Methods",
