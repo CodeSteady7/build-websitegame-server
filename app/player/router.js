@@ -32,5 +32,5 @@ router.put(
   multer({ dest: os.tmpdir() }).single("image"),
   editProfile
 );
-
+//
 module.exports = router;
